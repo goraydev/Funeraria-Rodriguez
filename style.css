@@ -26,7 +26,12 @@
   font-family: var(--type-lyrics);
 }
 
-img {
+html {
+  scroll-behavior: smooth;
+}
+
+img,
+video {
   max-width: 100%;
   height: auto;
 }
@@ -36,15 +41,15 @@ img {
   z-index: 2;
   width: 100%;
   height: 115px;
-  position: absolute;
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(0.5rem);
   left: 50%;
   transform: translate(-50%);
-  background-color: rgba(255, 255, 255, 0.15);
   overflow: hidden;
   transition: all 0.4s;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.055);
-  border: 1px solid rgba(255, 255, 255, 0.212);
 }
+
 .menu {
   width: 95%;
   position: absolute;
@@ -103,7 +108,7 @@ img {
     transform: translate(-50%);
   }
 }
-@media (max-width: 1000px) {
+@media (max-width: 1170px) {
   .menu {
     display: flex;
     flex-direction: column;
@@ -138,80 +143,329 @@ img {
   .menu ul li {
     margin: 15px 25px;
   }
+  .menu ul li a {
+    color: var(--black);
+  }
 }
 
 /* --------------------------- video inicial -------------------- */
 .main {
   position: relative;
-}
-.video-inicial > video {
-  width: 100%;
   height: 100vh;
-  object-fit: cover;
+  background-image: url(assets/sky.png);
 }
-
 .cards-iniciales {
   position: absolute;
   z-index: 1;
-  top: 30%;
+  top: 25%;
   left: 5%;
   width: 90%;
   height: 50vh;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
+  margin: 0 0 9rem;
+  align-items: center;
+}
+
+@media screen and (min-width: 625px) {
+  .telefonos {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .telefonos {
+    flex-direction: row;
+  }
+  .num-telefonos ul li {
+    line-height: 2.5em;
+    letter-spacing: 0.2em;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .cards-iniciales {
+    top: 15%;
+  }
+  .frase-inicial,
+  .telefonos {
+    padding: 3rem;
+  }
+  .telefonos {
+    flex-direction: column;
+  }
+  .redes {
+    margin: 3rem 0;
+  }
+}
+
+@media screen and (min-width: 1350px) {
+  .cards-iniciales {
+    top: 30%;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+  .cards-iniciales > * {
+    width: 40%;
+    height: 100%;
+  }
 }
 
 .cards-iniciales > * {
   background-color: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(1rem);
+  backdrop-filter: blur(0.5rem);
+  margin: 0 0 1rem;
   border-radius: 2rem;
-  width: 40%;
-  height: 100%;
   color: var(--black);
 }
 
-.frase-inicial, .telefonos {
+.frase-inicial,
+.telefonos {
   font-size: var(--step-1);
   font-weight: lighter;
   text-align: center;
-  padding: 3rem;
 }
 
 h1 {
   font-size: var(--step--1);
-}
-.redes {
-  margin: 3rem 0;
 }
 
 .redes a i {
   color: var(--blue-900);
 }
 
-.redes a i:hover{
+.redes a i:hover {
   color: var(--blue-500);
 }
 
-.central{
+.central {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: medium;
 }
-.central > *{
+.central > * {
   text-align: center;
   padding: 0 1rem;
 }
-
-.num-telefonos{
-  text-align: center;
-  width: 100%;
-  padding: 0 5rem;
+.central h2 {
+  font-size: var(--step-1);
+  font-weight: 500;
 }
 
-.num-telefonos ul li{
+.num-telefonos {
+  text-align: left;
+  width: 100%;
+  padding: 0 0 0 8rem;
+}
+
+.num-telefonos ul li {
   font-weight: lighter;
-  line-height: 2.5em;
-  letter-spacing:0.3em;
+}
+
+/*  ------------------------ productos -------------------------- */
+
+.productos {
+  background-color: var(--skin);
+  width: 100%;
+}
+
+.productos h2 {
+  width: 90%;
+  margin: 0 auto;
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--blue-900);
+  letter-spacing: 0.3rem;
+}
+
+.productos h3 {
+  width: 90%;
+  margin: 0 auto;
+  font-size: 2rem;
+  font-weight: normal;
+  letter-spacing: 0.3rem;
+}
+
+@media screen and (min-width: 480px) {
+  .galeria-ataud {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .fluid-item {
+    flex: 0 1 calc(50% - 1rem);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .fluid-item {
+    flex: 0 1 calc(33% - 1rem);
+  }
+}
+
+.galeria-ataud,
+.galeria-flores {
+  width: 90%;
+  margin: 2rem auto;
+}
+
+.galeria-ataud article {
+  position: relative;
+  border-radius: 2rem;
+  padding: 0;
+  margin: 0 0 1rem;
+  overflow: hidden;
+}
+
+.fluid-item {
+  position: relative;
+  background-color: var(--white);
+}
+
+.fluid-item:hover .caption {
+  opacity: 1;
+  transform: translateY(-100px);
+  -webkit-transform: translateY(-100px);
+  -moz-transform: translateY(-100px);
+  -ms-transform: translateY(-100px);
+  -o-transform: translateY(-100px);
+}
+
+.caption {
+  width: 100%;
+  cursor: pointer;
+  position: absolute;
+  opacity: 0;
+  transition: transform 0.15s ease-in-out;
+}
+
+.blur {
+  background-color: var(--brown-500);
+  top: -5rem;
+  height: 300px;
+  width: 100%;
+  z-index: 5;
+  position: absolute;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+}
+
+.caption-text {
+  z-index: 10;
+  color: #fff;
+  position: absolute;
+  width: 100%;
+  height: 300px;
+  text-align: center;
+  top: -5rem;
+}
+
+.button-ver-mas {
+  margin: 1rem 0;
+  width: 100%;
+  text-align: center;
+}
+
+.button-ver-mas > * {
+  background-color: var(--blue-500);
+  color: var(--skin);
+  padding: 0.5rem 3rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+}
+
+/* ------------------- galeria de flores -------------------- */
+.galeria-flores {
+  display: flex;
+  flex-wrap: wrap;
+  height: 80rem;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  .galeria-flores {
+    flex-direction: row;
+  }
+}
+
+.fotos-menores {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+}
+
+@media screen and (min-width: 360px) {
+  .fotos-menores {
+    flex-wrap: nowrap;
+    align-items: flex-start;
+  }
+  .foto-floral {
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .fotos-menores {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  .foto-floral {
+    width: 48%;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .fotos-menores {
+    margin-bottom: 0;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-basis: 60%;
+    justify-content: space-between;
+  }
+  .foto-mayor {
+    margin-left: 2rem;
+    flex-basis: 30%;
+  }
+}
+
+.foto-floral {
+  height: 40%;
+  border-radius: 2rem;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.foto-floral img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 2rem;
+}
+
+.foto-mayor {
+  flex-grow: 0;
+}
+.foto-floral-m {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 2rem;
+}
+.foto-floral-m img {
+  position: absolute;
+  width: 100%;
+  height: 90%;
+  object-fit: cover;
+  border-radius: 2rem;
 }
