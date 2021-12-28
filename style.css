@@ -72,7 +72,7 @@ video {
   font-weight: 500;
   letter-spacing: 0.1rem;
   transition: all 0.4s;
-  color: var(--skin);
+  color: var(--white);
 }
 .menu ul li a:hover {
   background: rgba(255, 255, 255, 0.068);
@@ -144,7 +144,7 @@ video {
     margin: 15px 25px;
   }
   .menu ul li a {
-    color: var(--black);
+    color: var(--white);
   }
 }
 
@@ -274,13 +274,9 @@ h1 {
   width: 100%;
 }
 
-.servicios {
-  background-color: var(--brow-900);
-  margin: 0;
-}
-
 .productos h2,
-.servicios h2 {
+.servicios h2,
+.testimonios-seguros h2 {
   width: 90%;
   margin: 0 auto;
   padding: 1rem 0;
@@ -294,7 +290,7 @@ h1 {
 .productos h3,
 .servicios h3 {
   width: 90%;
-  margin: 1rem auto;
+  margin: 2rem auto;
   font-size: 2rem;
   font-weight: normal;
   letter-spacing: 0.3rem;
@@ -393,12 +389,13 @@ h1 {
 
 /* ------------------- galeria de flores -------------------- */
 .galeria-flores {
-  border: 1px solid transparent;
+  padding: 0 0 5rem 0;
 }
 .fotos {
   display: grid;
-  height: 40rem;
+  height: 50rem;
   width: 95%;
+  margin-bottom: 2rem;
   grid-template-columns: 100%;
   grid-auto-flow: dense;
   gap: 2rem;
@@ -440,9 +437,200 @@ h1 {
 }
 
 /* ------------------------------- SERVICIOS ----------------------- */
+.servicios {
+  background-color: var(--brow-900);
+}
+
 .auto-funeraria img {
   width: 100%;
   border-radius: 2rem;
   object-fit: cover;
   object-position: center center;
+}
+
+.arreglos-funerales {
+  padding: 0 0 8rem 0;
+  height: 50rem;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: repeat(3, 33.3%);
+  gap: 2rem;
+}
+
+.arreglo-funeral {
+  position: relative;
+}
+
+.arreglo-funeral img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2rem;
+  object-position: center center;
+}
+
+@media screen and (min-width: 480px) {
+  .arreglos-funerales {
+    padding: 0 2rem 8rem 0;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: repeat(2, 50%);
+  }
+  .arreglo-funeral:first-child {
+    grid-row: 1 / 3;
+    grid-column: 1 / 2;
+  }
+}
+
+/* ------------- TESTIMONIOS ---------------- */
+.testimonios-seguros {
+  background-color: var(--blue-900);
+  padding-bottom: 5rem;
+}
+
+.testimonios-seguros h2 {
+  color: var(--brown-500);
+}
+
+.testimonios {
+  width: 90%;
+  margin: 0 auto 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.tarjeta {
+  margin: 1rem 2rem;
+  padding: 1rem;
+  background-color: var(--skin);
+  color: var(--black);
+  display: flex;
+  flex-direction: column;
+}
+.tarjeta p:first-child {
+  margin-bottom: 1rem;
+}
+.tarjeta span {
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .testimonios {
+    flex-direction: row;
+  }
+}
+
+/* -------------- ATENCION PREFERENCIAL -------------- */
+
+@-webkit-keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 7));
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 7));
+  }
+}
+.slider {
+  background: white;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
+  overflow: hidden;
+  position: relative;
+  width: 85%;
+  margin: 0 auto;
+}
+.slider::before,
+.slider::after {
+  background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
+  content: "";
+  height: 100px;
+  position: absolute;
+  width: 200px;
+  z-index: 2;
+}
+.slider::after {
+  right: 0;
+  top: 0;
+  transform: rotateZ(180deg);
+}
+.slider::before {
+  left: 0;
+  top: 0;
+}
+.slider .slide-track {
+  -webkit-animation: scroll 40s linear infinite;
+  animation: scroll 40s linear infinite;
+  display: flex;
+  width: calc(250px * 14);
+}
+.slider .slide {
+  height: 100px;
+  width: 250px;
+}
+
+/* --------------footer ---------------- */
+.footer {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.contenedor {
+  width: 90%;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+  font-weight: lighter;
+}
+.contacto {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  .contacto {
+    flex-direction: row;
+  }
+}
+
+.caja {
+  padding: 1rem;
+  flex: 1 0 30%;
+}
+.caja h4 {
+  font-size: 1.5rem;
+}
+
+.caja ul {
+  list-style: none;
+}
+.caja ul li {
+  font-weight: lighter;
+  margin-bottom: 0.6rem;
+}
+
+.caja a {
+  margin: 2rem 0;
+  text-decoration: none;
+  color: var(--white);
+}
+.caja a:hover {
+  border-bottom: thin solid var(--white);
+}
+
+.derechos-creador {
+  padding: 0 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.derechos-creador p {
+  margin: 0 0 0.5rem;
 }
