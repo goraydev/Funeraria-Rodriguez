@@ -613,7 +613,6 @@ h1 {
 }
 .caja ul li {
   font-weight: lighter;
-  margin-bottom: 0.6rem;
 }
 
 .caja a {
@@ -622,7 +621,7 @@ h1 {
   color: var(--white);
 }
 .caja a:hover {
-  border-bottom: thin solid var(--white);
+  text-decoration: underline;
 }
 
 .derechos-creador {
