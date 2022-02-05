@@ -279,7 +279,7 @@ h1 {
 .testimonios-seguros h2 {
   width: 90%;
   margin: 0 auto;
-  padding: 1rem 0;
+  padding: 3rem 0;
   text-align: center;
   font-size: 2.5rem;
   font-weight: bold;
@@ -613,6 +613,7 @@ h1 {
 }
 .caja h4 {
   font-size: 1.5rem;
+  padding-bottom: 1rem;
 }
 
 .caja ul {
