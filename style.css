@@ -580,6 +580,13 @@ h1 {
 .footer {
   background-color: var(--black);
   color: var(--white);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .footer {
+    text-align: left;
+  }
 }
 
 .contenedor {
